@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GUIDESTACK · Digital guides</title>
+<meta name="description" content="Did you see GUIDESTACK on your card statement? You bought a digital guide in one of our online stores. Recover your access here.">
+<meta name="robots" content="index,follow">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3a5f'/%3E%3Cpath d='M18 20h28M18 32h28M18 44h18' stroke='white' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--ink:#16202c;--mut:#5b6775;--acc:#1f3a5f;--acc2:#2f6fb0;--ok:#1d7a46;--line:#e2e6eb}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141a;--card:#18202a;--ink:#eef2f6;--mut:#a3afbd;--acc:#8fb7e6;--acc2:#8fb7e6;--ok:#6fd39c;--line:#2a3441}}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:620px;margin:0 auto;padding:28px 16px 48px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.12em;font-size:15px;color:var(--acc)}
+.brand i{display:inline-block;width:30px;height:30px;border-radius:8px;background:var(--acc)}
+h1{font-size:clamp(24px,6vw,32px);line-height:1.2;margin:22px 0 10px}
+.lead{color:var(--mut);margin:0 0 22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin:0 0 16px}
+.card h2{font-size:19px;margin:0 0 8px}
+ul{margin:8px 0 0;padding-left:20px}li{margin:4px 0}
+label{display:block;font-weight:600;margin:10px 0 6px}
+input[type=email]{width:100%;font-size:17px;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+button{margin-top:12px;width:100%;font-size:17px;font-weight:700;padding:14px;border:0;border-radius:10px;background:var(--acc2);color:#fff;cursor:pointer}
+button[disabled]{opacity:.6}
+.msg{margin-top:12px;font-weight:600}.msg.ok{color:var(--ok)}.msg.err{color:#c0392b}
+.hp{position:absolute;left:-9999px}
+.desc{font-family:ui-monospace,Consolas,monospace;background:var(--bg);border:1px dashed var(--line);padding:2px 8px;border-radius:6px}
+footer{color:var(--mut);font-size:14px;margin-top:22px}
+select{font-size:14px;padding:4px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.top{display:flex;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><div class="brand"><i></i>GUIDESTACK</div>
+    <select id="lang" aria-label="Language">
+      <option value="en">English</option><option value="es">Español</option><option value="it">Italiano</option><option value="tr">Türkçe</option>
+      <option value="fr">Français</option><option value="pl">Polski</option><option value="de">Deutsch</option><option value="ro">Română</option>
+    </select></div>
+  <h1 data-t="h1"></h1>
+  <p class="lead" data-t="lead"></p>
+
+  <div class="card">
+    <h2 data-t="whatTitle"></h2>
+    <p data-t="what"></p>
+    <ul><li data-t="b1"></li><li data-t="b2"></li><li data-t="b3"></li></ul>
+  </div>
+
+  <div class="card" id="recover">
+    <h2 data-t="formTitle"></h2>
+    <p data-t="formText"></p>
+    <form id="f" novalidate>
+      <label for="email" data-t="emailLabel"></label>
+      <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button id="btn" type="submit" data-t="btn"></button>
+      <div id="msg" class="msg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+
+  <div class="card">
+    <h2 data-t="helpTitle"></h2>
+    <p data-t="help"></p>
+    <p><a id="mail" href="mailto:librodigital2026@gmail.com">librodigital2026@gmail.com</a></p>
+  </div>
+
+  <footer>GFI DIGITAL LLC · 1057 NW 136th Ave, Miami, FL 33182, USA · <span data-t="foot"></span></footer>
+</div>
+<script>
+const T={
+en:{h1:"Did you see GUIDESTACK on your card statement?",lead:"You bought a digital guide in one of our online stores. GUIDESTACK is the name that appears on the statement for all our stores.",whatTitle:"What you bought",what:"A digital product (guide, program or app access) that is delivered by email right after payment. There is no physical shipment.",b1:"The charge shows as GUIDESTACK (sometimes followed by the store name).",b2:"Look in your inbox and spam folder for the email sent at the time of purchase, with your download or access link.",b3:"Can't find it? Request it below and we will send it again.",formTitle:"Recover your access",formText:"Type the email you used at checkout. If we find your purchase, we will resend your access to that email.",emailLabel:"Email used at checkout",btn:"Send me my access",ok:"Done. If there is a purchase with this email, you will receive your access within 24 hours. Check your spam folder too.",err:"Please type a valid email address.",rate:"Too many attempts. Please try again in 15 minutes.",net:"Connection problem. Please try again.",helpTitle:"Still need help?",help:"Write to us and include the email you used and the date of the charge. We answer every message, usually within 24 hours.",foot:"Digital products delivered by email."},
+es:{h1:"¿Ves GUIDESTACK en el resumen de tu tarjeta?",lead:"Compraste una guía digital en una de nuestras tiendas online. GUIDESTACK es el nombre que figura en el resumen para todas nuestras tiendas.",whatTitle:"Qué compraste",what:"Un producto digital (guía, programa o acceso a una app) que se entrega por email apenas se aprueba el pago. No hay envío físico.",b1:"El cargo figura como GUIDESTACK (a veces seguido del nombre de la tienda).",b2:"Buscá en tu bandeja de entrada y en spam el email que te llegó al comprar, con tu link de descarga o de acceso.",b3:"¿No lo encontrás? Pedilo acá abajo y te lo volvemos a mandar.",formTitle:"Recuperá tu acceso",formText:"Escribí el email que usaste al pagar. Si encontramos tu compra, te reenviamos el acceso a ese email.",emailLabel:"Email que usaste al pagar",btn:"Enviarme mi acceso",ok:"Listo. Si hay una compra con este email, vas a recibir tu acceso en menos de 24 horas. Revisá también spam.",err:"Escribí un email válido.",rate:"Demasiados intentos. Probá de nuevo en 15 minutos.",net:"Problema de conexión. Probá de nuevo.",helpTitle:"¿Necesitás ayuda?",help:"Escribinos con el email que usaste y la fecha del cargo. Respondemos todos los mensajes, en general en menos de 24 horas.",foot:"Productos digitales entregados por email."},
+it:{h1:"Hai visto GUIDESTACK nell'estratto conto della carta?",lead:"Hai acquistato una guida digitale in uno dei nostri negozi online. GUIDESTACK è il nome che compare nell'estratto conto per tutti i nostri negozi.",whatTitle:"Cosa hai acquistato",what:"Un prodotto digitale (guida, programma o accesso a un'app) consegnato via email subito dopo il pagamento. Nessuna spedizione fisica.",b1:"L'addebito compare come GUIDESTACK (a volte seguito dal nome del negozio).",b2:"Cerca nella posta in arrivo e nello spam l'email ricevuta al momento dell'acquisto, con il link di download o di accesso.",b3:"Non la trovi? Richiedila qui sotto e te la rinviamo.",formTitle:"Recupera il tuo accesso",formText:"Scrivi l'email usata al pagamento. Se troviamo il tuo acquisto, ti rinviamo l'accesso a quell'email.",emailLabel:"Email usata al pagamento",btn:"Inviami il mio accesso",ok:"Fatto. Se c'è un acquisto con questa email, riceverai l'accesso entro 24 ore. Controlla anche lo spam.",err:"Scrivi un indirizzo email valido.",rate:"Troppi tentativi. Riprova tra 15 minuti.",net:"Problema di connessione. Riprova.",helpTitle:"Ti serve aiuto?",help:"Scrivici indicando l'email usata e la data dell'addebito. Rispondiamo a tutti, di solito entro 24 ore.",foot:"Prodotti digitali consegnati via email."},
+tr:{h1:"Kart ekstrenizde GUIDESTACK mı gördünüz?",lead:"Online mağazalarımızdan birinden dijital bir rehber satın aldınız. GUIDESTACK, tüm mağazalarımız için ekstrede görünen addır.",whatTitle:"Ne satın aldınız",what:"Ödemeden hemen sonra e-postayla teslim edilen dijital bir ürün (rehber, program veya uygulama erişimi). Fiziksel gönderim yoktur.",b1:"Ödeme GUIDESTACK olarak görünür (bazen mağaza adıyla birlikte).",b2:"Satın alma sırasında gönderilen, indirme veya erişim bağlantınızı içeren e-postayı gelen kutunuzda ve spam klasöründe arayın.",b3:"Bulamadınız mı? Aşağıdan isteyin, tekrar gönderelim.",formTitle:"Erişiminizi geri alın",formText:"Ödemede kullandığınız e-postayı yazın. Satın alımınızı bulursak erişiminizi o adrese tekrar göndeririz.",emailLabel:"Ödemede kullandığınız e-posta",btn:"Erişimimi gönder",ok:"Tamam. Bu e-postayla bir satın alım varsa, erişiminiz 24 saat içinde gelecek. Spam klasörünü de kontrol edin.",err:"Lütfen geçerli bir e-posta yazın.",rate:"Çok fazla deneme. 15 dakika sonra tekrar deneyin.",net:"Bağlantı sorunu. Tekrar deneyin.",helpTitle:"Yardım mı lazım?",help:"Kullandığınız e-postayı ve ödeme tarihini yazarak bize ulaşın. Her mesaja genellikle 24 saat içinde yanıt veririz.",foot:"E-postayla teslim edilen dijital ürünler."},
+fr:{h1:"Vous voyez GUIDESTACK sur votre relevé de carte ?",lead:"Vous avez acheté un guide numérique dans l'une de nos boutiques en ligne. GUIDESTACK est le nom qui apparaît sur le relevé pour toutes nos boutiques.",whatTitle:"Ce que vous avez acheté",what:"Un produit numérique (guide, programme ou accès à une application) livré par e-mail juste après le paiement. Aucun envoi physique.",b1:"Le débit apparaît sous le nom GUIDESTACK (parfois suivi du nom de la boutique).",b2:"Cherchez dans votre boîte de réception et vos spams l'e-mail reçu lors de l'achat, avec votre lien de téléchargement ou d'accès.",b3:"Introuvable ? Demandez-le ci-dessous et nous vous le renverrons.",formTitle:"Récupérez votre accès",formText:"Saisissez l'e-mail utilisé lors du paiement. Si nous trouvons votre achat, nous renverrons votre accès à cette adresse.",emailLabel:"E-mail utilisé lors du paiement",btn:"Envoyer mon accès",ok:"C'est fait. Si un achat existe avec cet e-mail, vous recevrez votre accès sous 24 heures. Vérifiez aussi vos spams.",err:"Veuillez saisir une adresse e-mail valide.",rate:"Trop de tentatives. Réessayez dans 15 minutes.",net:"Problème de connexion. Réessayez.",helpTitle:"Besoin d'aide ?",help:"Écrivez-nous en indiquant l'e-mail utilisé et la date du débit. Nous répondons à tous les messages, en général sous 24 heures.",foot:"Produits numériques livrés par e-mail."},
+pl:{h1:"Widzisz GUIDESTACK na wyciągu z karty?",lead:"Kupiłeś cyfrowy poradnik w jednym z naszych sklepów internetowych. GUIDESTACK to nazwa, która pojawia się na wyciągu dla wszystkich naszych sklepów.",whatTitle:"Co kupiłeś",what:"Produkt cyfrowy (poradnik, program lub dostęp do aplikacji) dostarczany e-mailem zaraz po płatności. Bez wysyłki fizycznej.",b1:"Obciążenie widnieje jako GUIDESTACK (czasem z nazwą sklepu).",b2:"Poszukaj w skrzynce odbiorczej i w spamie e-maila wysłanego przy zakupie, z linkiem do pobrania lub dostępu.",b3:"Nie możesz go znaleźć? Poproś poniżej, a wyślemy go ponownie.",formTitle:"Odzyskaj dostęp",formText:"Wpisz e-mail użyty przy płatności. Jeśli znajdziemy Twój zakup, wyślemy dostęp ponownie na ten adres.",emailLabel:"E-mail użyty przy płatności",btn:"Wyślij mi dostęp",ok:"Gotowe. Jeśli istnieje zakup z tym e-mailem, otrzymasz dostęp w ciągu 24 godzin. Sprawdź też spam.",err:"Wpisz poprawny adres e-mail.",rate:"Zbyt wiele prób. Spróbuj ponownie za 15 minut.",net:"Problem z połączeniem. Spróbuj ponownie.",helpTitle:"Potrzebujesz pomocy?",help:"Napisz do nas, podając e-mail użyty przy zakupie i datę obciążenia. Odpowiadamy na każdą wiadomość, zwykle w ciągu 24 godzin.",foot:"Produkty cyfrowe dostarczane e-mailem."},
+de:{h1:"Sie sehen GUIDESTACK auf Ihrer Kartenabrechnung?",lead:"Sie haben in einem unserer Online-Shops einen digitalen Ratgeber gekauft. GUIDESTACK ist der Name, der für alle unsere Shops auf der Abrechnung erscheint.",whatTitle:"Was Sie gekauft haben",what:"Ein digitales Produkt (Ratgeber, Programm oder App-Zugang), das direkt nach der Zahlung per E-Mail geliefert wird. Kein physischer Versand.",b1:"Die Belastung erscheint als GUIDESTACK (manchmal gefolgt vom Shop-Namen).",b2:"Suchen Sie im Posteingang und im Spam-Ordner nach der E-Mail vom Kauf mit Ihrem Download- oder Zugangslink.",b3:"Nicht gefunden? Fordern Sie sie unten an, wir senden sie erneut.",formTitle:"Zugang wiederherstellen",formText:"Geben Sie die beim Bezahlen verwendete E-Mail ein. Wenn wir Ihren Kauf finden, senden wir den Zugang erneut an diese Adresse.",emailLabel:"Beim Bezahlen verwendete E-Mail",btn:"Zugang zusenden",ok:"Erledigt. Wenn es einen Kauf mit dieser E-Mail gibt, erhalten Sie Ihren Zugang innerhalb von 24 Stunden. Prüfen Sie auch den Spam-Ordner.",err:"Bitte geben Sie eine gültige E-Mail-Adresse ein.",rate:"Zu viele Versuche. Bitte in 15 Minuten erneut versuchen.",net:"Verbindungsproblem. Bitte erneut versuchen.",helpTitle:"Brauchen Sie Hilfe?",help:"Schreiben Sie uns mit der verwendeten E-Mail und dem Datum der Belastung. Wir beantworten jede Nachricht, meist innerhalb von 24 Stunden.",foot:"Digitale Produkte, geliefert per E-Mail."},
+ro:{h1:"Vezi GUIDESTACK pe extrasul cardului?",lead:"Ai cumpărat un ghid digital într-unul dintre magazinele noastre online. GUIDESTACK este numele care apare pe extras pentru toate magazinele noastre.",whatTitle:"Ce ai cumpărat",what:"Un produs digital (ghid, program sau acces la o aplicație) livrat pe e-mail imediat după plată. Nu există livrare fizică.",b1:"Plata apare ca GUIDESTACK (uneori urmat de numele magazinului).",b2:"Caută în inbox și în spam e-mailul primit la cumpărare, cu linkul de descărcare sau de acces.",b3:"Nu-l găsești? Cere-l mai jos și ți-l retrimitem.",formTitle:"Recuperează-ți accesul",formText:"Scrie e-mailul folosit la plată. Dacă găsim achiziția, îți retrimitem accesul la acel e-mail.",emailLabel:"E-mailul folosit la plată",btn:"Trimite-mi accesul",ok:"Gata. Dacă există o achiziție cu acest e-mail, vei primi accesul în 24 de ore. Verifică și spam-ul.",err:"Scrie o adresă de e-mail validă.",rate:"Prea multe încercări. Încearcă din nou peste 15 minute.",net:"Problemă de conexiune. Încearcă din nou.",helpTitle:"Ai nevoie de ajutor?",help:"Scrie-ne cu e-mailul folosit și data plății. Răspundem la fiecare mesaj, de obicei în 24 de ore.",foot:"Produse digitale livrate pe e-mail."}
+};
+const sel=document.getElementById('lang');
+function pick(){try{const s=localStorage.getItem('gs_lang');if(s&&T[s])return s}catch(e){}
+  for(const l of (navigator.languages||[navigator.language||'en'])){const k=String(l).slice(0,2).toLowerCase();if(T[k])return k}return 'en'}
+let L=pick();
+function apply(){const t=T[L];document.documentElement.lang=L;sel.value=L;
+  document.querySelectorAll('[data-t]').forEach(el=>{el.textContent=t[el.dataset.t]||''});
+  document.title='GUIDESTACK · '+t.formTitle}
+sel.addEventListener('change',()=>{L=sel.value;try{localStorage.setItem('gs_lang',L)}catch(e){}apply()});
+apply();
+const f=document.getElementById('f'),msg=document.getElementById('msg'),btn=document.getElementById('btn');
+f.addEventListener('submit',async ev=>{ev.preventDefault();const t=T[L];msg.className='msg';msg.textContent='';
+  const email=f.email.value.trim();
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)){msg.className='msg err';msg.textContent=t.err;return}
+  btn.disabled=true;
+  try{const r=await fetch('https://app.guidestack.online/api/recuperar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email,lang:L,website:f.website.value})});
+    if(r.status===429){msg.className='msg err';msg.textContent=t.rate}
+    else if(r.status===400){msg.className='msg err';msg.textContent=t.err}
+    else{msg.className='msg ok';msg.textContent=t.ok;f.email.value=''}
+  }catch(e){msg.className='msg err';msg.textContent=t.net}
+  btn.disabled=false});
+</script>
+</body>
+</html>
